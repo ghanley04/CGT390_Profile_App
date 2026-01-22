@@ -13,8 +13,9 @@ import edgarImage from './assets/edgarImage.jpeg';
 import gingerImage from './assets/gingerImage.jpeg';
 import CardWrapper from './components/CardWrapper'
 
+
 function App() {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(false);
   const name = "Gillian Hanley"
   const bio = <div className="main-bio"> My name is Gillian Hanley, and I am currently a junior here at Purdue. I am studying Web Programming and Design,
     and I am working towards a minor in Computer Science. I love creating websites, and
@@ -77,6 +78,9 @@ function App() {
     }
   ];
 
+  // function toggle() {
+  //   setCount(!count);
+  // }
 
   return (
     <>
@@ -96,6 +100,8 @@ function App() {
           />
         ))}
       </CardWrapper>
+
+      {/* <button onClick={toggle}>{count ? "true" : "false"}</button> */}
     </>
   )
 }
