@@ -4,6 +4,14 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Card from './components/Card'
 import NavBar from './components/NavBar';
+import scooterImage from './assets/scooter.jpeg';
+import bibiImage from './assets/bibi.jpeg';
+import murphyImage from './assets/murphyImage.jpeg';
+import laikaImage from './assets/laikaImage.jpeg';
+import dunkImage from './assets/dunkImage.jpeg';
+import edgarImage from './assets/edgarImage.jpeg';
+import gingerImage from './assets/gingerImage.jpeg';
+import CardWrapper from './components/CardWrapper'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -17,19 +25,77 @@ function App() {
 
   const email = "hanleyg@purdue.edu";
 
+  const cardData = [
+    {
+      id: 1,
+      name: "Vito Scooterino",
+      title: "Catnip Boss",
+      description: "Runs the territory with an iron paw and impeccable taste in catnip.",
+      image: scooterImage
+    },
+    {
+      id: 2,
+      name: "Bibi 'The Whisper' Habibi",
+      title: "Operations Specialist",
+      description: "Handles deals quietly and efficiently, never missing a pawstep.",
+      image: bibiImage
+    },
+    {
+      id: 3,
+      name: "Murphy 'Claws' Malone",
+      title: "Distribution Manager",
+      description: "Keeps the catnip moving smoothly through the neighborhood.",
+      image: murphyImage
+    },
+    {
+      id: 4,
+      name: "Laika 'The Hound'",
+      title: "Security",
+      description: "Watches the perimeter and ensures no intruders disturb the stash.",
+      image: laikaImage
+    },
+    {
+      id: 5,
+      name: "Dunk 'Fast Paws'",
+      title: "Enforcer",
+      description: "Strikes quickly to protect the catnip and settle disputes.",
+      image: dunkImage
+    },
+    {
+      id: 6,
+      name: "Edgar 'Tripod'",
+      title: "Street Scout",
+      description: "Three legs, sharp eyes—keeps tabs on the neighborhood with unmatched cunning.",
+      image: edgarImage
+    },
+    {
+      id: 7,
+      name: "Ginger 'Red Claw'",
+      title: "Negotiator",
+      description: "Smooth-talking and clever, makes deals happen without raising suspicion.",
+      image: gingerImage
+    }
+  ];
+
+
   return (
     <>
-      <NavBar/>
+      <NavBar />
       <h1 className="main-title" >About Me</h1>
-      <h3 className="main-name">{name}</h3>
+      <h2 className="main-name">{name}</h2>
       <div className="main-email">{email}</div>
       {bio}
-      <div className="main-card">
-        <Card />
-        <Card />
-        <Card />
-
-      </div>
+      <CardWrapper>
+        {cardData.map(card => (
+          <Card
+            key={card.id}
+            name={card.name}
+            title={card.title}
+            description={card.description}
+            image={card.image}
+          />
+        ))}
+      </CardWrapper>
     </>
   )
 }

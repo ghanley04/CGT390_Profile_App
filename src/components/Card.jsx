@@ -1,18 +1,13 @@
 import React from "react";
-import viteLogo from '/vite.svg';
-import './Card.css'
-import scooterImage from "../assets/scooter.jpeg"; 
+import './Card.css';
 
-const Card = () => {
-    const name = "John Doe"
-    const title = "Full Stack Developer"
-    const description = "Passionate about developing new strains of catnip for medical use."
+const Card = ({ name, title, description, image }) => {
     return (
         <div className="card-box">
             <img
                 className="card-image"
-                src={scooterImage}
-                alt="John Doe's profile"
+                src={image}
+                alt={`${name}'s profile`}
             />
             <h2 className="card-name">{name}</h2>
             <p className="card-title">{title}</p>

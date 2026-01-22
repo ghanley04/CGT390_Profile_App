@@ -1,6 +1,6 @@
 /* NavBar container */
 .navbar {
-  background-color: #d8afaf;
+  background-color: #270e0e;
   padding: 12px 24px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   display: flex;
@@ -16,7 +16,7 @@
 .navbar-logo {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #1a202c;
+  color: #dce1e9;
 }
 
 /* Nav links */
@@ -30,7 +30,7 @@
 
 .navbar-links li a {
   text-decoration: none;
-  color: #2d3748;
+  color: #dce1e9;
   font-weight: 500;
   transition: color 0.2s ease-in-out;
 }
