@@ -28,6 +28,8 @@ function App() {
     whenever I can. </div>
 
   const email = "hanleyg@purdue.edu";
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedTitle, setSelectedTitle] = useState('All');
 
   const cardData = [
     {
@@ -106,6 +108,19 @@ function App() {
   //   setCount(!count);
   // }
 
+  const titles = ['All', ...new Set(cardData.map(card => card.title))];
+
+  const filteredCards = cardData.filter(card => {
+    const matchesSearch =
+      card.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      card.description.toLowerCase().includes(searchTerm.toLowerCase());
+
+    const matchesTitle =
+      selectedTitle === 'All' || card.title === selectedTitle;
+
+    return matchesSearch && matchesTitle;
+  });
+
   return (
     <>
       <NavBar />
@@ -113,8 +128,14 @@ function App() {
       <h2 className="main-name">{name}</h2>
       <div className="main-email">{email}</div>
       {bio}
-      <CardWrapper>
-        {cardData.map(card => (
+      <CardWrapper
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        titles={titles}
+        selectedTitle={selectedTitle}
+        setSelectedTitle={setSelectedTitle}
+      >
+        {filteredCards.map(card => (
           <Card
             key={card.id}
             name={card.name}
@@ -124,10 +145,8 @@ function App() {
           />
         ))}
       </CardWrapper>
-
-      {/* <button onClick={toggle}>{count ? "true" : "false"}</button> */}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
